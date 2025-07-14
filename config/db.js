@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
+const MONGO_URI = process.env.NODE_ENV === 'production'
+    ? process.env.MONGO_URI_PROD
+    : process.env.MONGO_URI_LOCAL;
+
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        await mongoose.connect(MONGO_URI);
         console.log('MongoDB Connected');
     } catch (err) {
         console.error(err);
