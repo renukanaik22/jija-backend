@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const MONGO_URI = process.env.NODE_ENV === 'production'
     ? process.env.MONGO_URI
-    : process.env.MONGO_URI_LOCAL;
+    : 'mongodb://localhost:27017/jija';
 
 const connectDB = async () => {
     try {
